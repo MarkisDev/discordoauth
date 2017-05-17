@@ -1,0 +1,24 @@
+[15-May-2017 06:00:35 UTC] PHP Notice:  Undefined index: access_token in /home/discordsites/public_html/onepages/login/index.php on line 65
+[15-May-2017 06:00:35 UTC] PHP Stack trace:
+[15-May-2017 06:00:35 UTC] PHP   1. {main}() /home/discordsites/public_html/onepages/login/index.php:0
+[15-May-2017 06:00:35 UTC] PHP Fatal error:  Uncaught exception 'GuzzleHttp\Exception\ClientException' with message 'Client error: `GET https://discordapp.com/api/users/@me` resulted in a `401 UNAUTHORIZED` response:
+{"code": 0, "message": "401: Unauthorized"}
+' in /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:111
+Stack trace:
+#0 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\P in /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 111
+[15-May-2017 06:02:02 UTC] PHP Notice:  Undefined variable: reponseBody in /home/discordsites/public_html/onepages/login/index.php on line 82
+[15-May-2017 06:02:02 UTC] PHP Stack trace:
+[15-May-2017 06:02:02 UTC] PHP   1. {main}() /home/discordsites/public_html/onepages/login/index.php:0
+[15-May-2017 11:18:05 UTC] PHP Notice:  Undefined index: code in /home/discordsites/public_html/onepages/login/index.php on line 32
+[15-May-2017 11:18:05 UTC] PHP Notice:  Undefined index: access_token in /home/discordsites/public_html/onepages/login/index.php on line 65
+[15-May-2017 11:18:05 UTC] PHP Fatal error:  Uncaught exception 'GuzzleHttp\Exception\ClientException' with message 'Client error: `GET https://discordapp.com/api/users/@me` resulted in a `401 UNAUTHORIZED` response:
+{"code": 0, "message": "401: Unauthorized"}
+' in /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php:111
+Stack trace:
+#0 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/guzzle/src/Middleware.php(65): GuzzleHttp\Exception\RequestException::create(Object(GuzzleHttp\Psr7\Request), Object(GuzzleHttp\Psr7\Response))
+#1 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/promises/src/Promise.php(203): GuzzleHttp\Middleware::GuzzleHttp\{closure}(Object(GuzzleHttp\Psr7\Response))
+#2 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/promises/src/Promise.php(156): GuzzleHttp\Promise\Promise::callHandler(1, Object(GuzzleHttp\Psr7\Response), Array)
+#3 /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/promises/src/TaskQueue.php(47): GuzzleHttp\P in /home/discordsites/public_html/onepages/login/vendor/guzzlehttp/guzzle/src/Exception/RequestException.php on line 111
