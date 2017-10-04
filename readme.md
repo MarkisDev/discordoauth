@@ -12,5 +12,7 @@ After the user authorizes the application, a code is sent by discord to the Redi
 
 # I have more doubts as on how to use it and I want to request more functions!
 Join my server and DM me - Markis™#0227 your questions and I will sort them. Feel free to request for more functions :)
+
 Server Link : https://discord.io/ds
+
 Documentaion Link : https://markis.pw (coming soon)
