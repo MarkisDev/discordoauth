@@ -65,7 +65,7 @@ function get_guilds()
 {
 $response = $http->request('GET', '/api/users/@me/guilds', [
     'headers' => [
-        'Authorization' => 'Bearer '.$_SESSION['auth_token'];
+        'Authorization' => 'Bearer '.$_SESSION['auth_token']
     ]
 ]);
 $responseBody = $response->getBody(true); 
@@ -78,7 +78,7 @@ function get_guild($id)
 {
 	$response = $http->request('GET', '/api/guilds/' . $id, [
 		'headers' => [
-			'Authorization' => 'Bearer ' . $_SESSION['auth_token'];
+			'Authorization' => 'Bearer ' . $_SESSION['auth_token']
 		]
 	]);
 
