@@ -29,7 +29,7 @@ $code = $_GET['code'];
 $data = "grant_type=authorization_code&code=$code&redirect_uri=$redirect&client_id=$clientid&client_secret=$clientsecretid";
 
 // Get authorization code by posting to discord's API
-$response = $http->request('POST', '/api/oauth2/token', [
+$response = $GLOBALS['http']->request('POST', '/api/oauth2/token', [
 			'form_params' => [
 				'client_id' => $clientid,
 				'client_secret' => $clientsecretid,
@@ -46,7 +46,7 @@ $response = $http->request('POST', '/api/oauth2/token', [
 // Function to get users details and store them in SESSION variables (identify scope)
 function get_user()
 {
-$response = $http->request('GET', '/api/users/@me', [
+$response = $GLOBALS['http']->request('GET', '/api/users/@me', [
     'headers' => [
         'Authorization' => 'Bearer ' . $_SESSION['auth_token']
     ]
@@ -63,9 +63,9 @@ $_SESSION['user_avatar'] = $response['avatar'];
 // Function to get logged in users guilds information. (guilds scope)
 function get_guilds()
 {
-$response = $http->request('GET', '/api/users/@me/guilds', [
+$response = $GLOBALS['http']->request('GET', '/api/users/@me/guilds', [
     'headers' => [
-        'Authorization' => 'Bearer '.$_SESSION['auth_token'];
+        'Authorization' => 'Bearer '.$_SESSION['auth_token']
     ]
 ]);
 $responseBody = $response->getBody(true); 
@@ -76,9 +76,9 @@ return $response;
 // Function to get a single guild information Returns guilds object
 function get_guild($id)
 {
-	$response = $http->request('GET', '/api/guilds/' . $id, [
+	$response = $GLOBALS['http']->request('GET', '/api/guilds/' . $id, [
 		'headers' => [
-			'Authorization' => 'Bearer ' . $_SESSION['auth_token'];
+			'Authorization' => 'Bearer ' . $_SESSION['auth_token']
 		]
 	]);
 
