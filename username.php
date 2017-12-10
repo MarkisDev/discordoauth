@@ -6,6 +6,6 @@
 		get_user();
 		
 	}
-	echo $_SESSION['username']
+	echo $_SESSION['user']['username'];
 
 ?>

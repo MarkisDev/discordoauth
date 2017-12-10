@@ -55,10 +55,6 @@ $response = $GLOBALS['http']->request('GET', '/api/users/@me', [
 $responseBody = $response->getBody(true); 
 $response = json_decode($responseBody, true);
 $_SESSION['user'] = $response;
-$_SESSION['username'] = $repsonse['username'];
-$_SESSION['discrim'] = $response['discriminator'];
-$_SESSION['user_id'] = $repsonse['id'];
-$_SESSION['user_avatar'] = $response['avatar'];
 }
 
 // Function to get logged in users guilds information. (guilds scope)
