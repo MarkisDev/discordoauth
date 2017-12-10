@@ -54,6 +54,7 @@ $response = $GLOBALS['http']->request('GET', '/api/users/@me', [
 
 $responseBody = $response->getBody(true); 
 $response = json_decode($responseBody, true);
+$_SESSION['user'] = $response['user'];
 $_SESSION['username'] = $repsonse['username'];
 $_SESSION['discrim'] = $response['discriminator'];
 $_SESSION['user_id'] = $repsonse['id'];
