@@ -1,7 +1,7 @@
 <?php
 
 /* Discord Oauth v.3.0
- * Velocity Bot Dashboard Login
+ * Demo Login Script
  * @owner : Rijuth Menon A.K.A Markis
  * @copyright : https://rijuthmenon.me | https://markis.pw
  * #MarkisOauth (+) CUSTOM CODES (+) [Let's get series]
