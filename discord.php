@@ -1,7 +1,7 @@
 <?php
 /**
  * Discord OAuth v.3.0.0 
- * @copyright rijuthmenon.me
+ * @copyright https://markis.pw
  * @author Markis
  */
 
