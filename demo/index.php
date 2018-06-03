@@ -2,8 +2,8 @@
 
 /* Home Page
  * Demo Working Script 
- * @owner : Rijuth Menon A.K.A Markis
- * @copyright : https://rijuthmenon.me | https://markis.pw
+ * @author Markis
+ * @copyright : https://markis.pw
  * #MarkisHome ------> CUSTOM CODES <---------
  */
  
