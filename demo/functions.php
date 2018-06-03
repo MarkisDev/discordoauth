@@ -1,8 +1,8 @@
 <?php
 /* Useful Functions 
  * Just some functions
- * @owner Rijuth Menon A.K.A Markis
- * @copyright https://markis.pw | https://rijuthmenon.me
+ * @author Markis
+ * @copyright https://rijuthmenon.me
  */
  
 // Redirect function
