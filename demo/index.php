@@ -3,8 +3,6 @@
 /* Home Page
  * Demo Working Script 
  * @author Markis
- * @copyright : https://markis.pw
- * #MarkisHome ------> CUSTOM CODES <---------
  */
  
  // Let's show errors
@@ -12,9 +10,10 @@
  ini_set('display_errors', 1);
  
  // Let's include our Oauth script and functions script
- require "discord.php";
  require "functions.php";
- 
+ require "discord.php";
+
+ // All values are being stored in SESSION. Check session.txt for the variable names and the values they contain.
  ?>
  <html>
      <title> Demo Oauth </title>
@@ -27,5 +26,5 @@
      <br />
      <h1> User Guilds :</h1>
      <p> <?php echo json_encode($_SESSION['guilds']); ?></p>
-     <h3 style="color:purple;"><a href="<?php echo url("YOUR CLIENT ID", "YOUR REDIRCT URI", "YOUR SCOPE(S) SEPARATED BY A SPACE"); ?>">Oauth Link </a></h3>
+     <h3 style="color:purple;"><a href="<?php echo url("YOUR CLIENT ID", "YOUR REDIRECT URI", "YOUR SCOPE(S) SEPARATED BY A SPACE"); ?>">Oauth Link </a></h3>
  </html>
