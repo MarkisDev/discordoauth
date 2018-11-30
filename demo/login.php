@@ -4,7 +4,7 @@
  * Demo Login Script
  * @author : Markis
  * @copyright : https://markis.pw
- * #MarkisOauth (+) CUSTOM CODES (+) [Let's get series]
+ * This script uses identify and guilds scope.
  */
  
  // Let's show errors
@@ -19,10 +19,10 @@
  // ** LEAVE THE FIRST PARAMETER OF init() EMPTY, IT IS FOR A CODE THAT WILL BE RECEIVED LATER ON AUTOMATICALLY
  init("", "YOUR REDIRECT URI HERE", "YOUR CLIENT ID HERE", "YOUR CLIENT SECRET ID HERE");
  
- // Let's get users details via script
+ // Let's get users details via script [identify scope]
  get_user();
  
- // Let's get users guilds via script
+ // Let's get users guilds via script [guilds scope]
  $_SESSION['guilds'] = get_guilds();
  
  // Let's redirect to home page when all data has been collected
