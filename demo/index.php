@@ -27,4 +27,5 @@
      <h1> User Guilds :</h1>
      <p> <?php echo json_encode($_SESSION['guilds']); ?></p>
      <h3 style="color:purple;"><a href="<?php echo url("YOUR CLIENT ID", "YOUR REDIRECT URI", "YOUR SCOPE(S) SEPARATED BY A SPACE"); ?>">Oauth Link </a></h3>
+     <a href="logout.php"><p>Logout</p></a>
  </html>
