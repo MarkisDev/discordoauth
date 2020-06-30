@@ -2,7 +2,7 @@
 
  # How To use it?
 It's very simple! Just add this line of code in your file :
-```include 'discord.php`;```
+```require 'discord.php`;```
 That's it! You've successfully added the oauth script to your code!
 TO Make it easier, I've added a demo working of the whole script. Open it and adjust it to your needs.
 
@@ -18,6 +18,6 @@ Too confusing? Just use the demo!
 # I have more doubts as on how to use it and I want to request more functions!
 Join my server and DM me - Markis#0227 your questions and I will sort them. Feel free to request for more functions :)
 
-Server Link : https://discord.gg/GeTuFyN
+Server Link : https://join.markis.dev
 
 

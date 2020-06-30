@@ -14,7 +14,8 @@ $GLOBALS['base_url'] = "https://discord.com";
 # A function to generate a random string to be used as state | (protection against CSRF)
 function gen_state()
 {
-    return bin2hex(openssl_random_pseudo_bytes(12));
+    $_SESSION['state'] = bin2hex(openssl_random_pseudo_bytes(12));
+    return $_SESSION['state'];
 }
 
 # A function to generate oAuth2 URL for logging in
@@ -28,6 +29,8 @@ function url($clientid, $redirect, $scope)
 function init($redirect_url, $client_id, $client_secret)
 {
     $code = $_GET['code'];
+    $state = $_GET['state'];
+    # Check if $state == $_SESSION['state'] to verify if the login is legit | CHECK THE FUNCTION get_state($state) FOR MORE INFORMATION.
     $url = $GLOBALS['base_url'] . "/api/oauth2/token";
     $data = array(
     "client_id" => $client_id,
@@ -96,4 +99,17 @@ function get_guild($id)
     return $results;
 }
 
+# A function to verify if login is legit
+function check_state($state)
+{
+    if ($state == $_SESSION['state'])
+    {
+        return true;
+    }
+    else
+    {
+        # The login is not valid, so you should probably redirect them back to home page
+        return false;
+    }
+}
 ?>

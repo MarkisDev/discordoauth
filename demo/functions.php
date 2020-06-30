@@ -1,11 +1,11 @@
 <?php
-/* Useful Functions 
- * Just some functions
- * @author Markis
- * @copyright https://rijuthmenon.me
+/* Useful functions.
+ * This file contains some useful functions for demo.
+ * @author : MarkisDev
+ * @copyright : https://markis.dev
  */
  
-// Redirect function
+# A function to redirect user.
 function redirect($url)
 {
     if (!headers_sent())
@@ -25,25 +25,31 @@ function redirect($url)
     }
 }
 
-	// Get's clients ip even if behind direct proxy # Returns client ip
-	function client_ip() {
-		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-			return $_SERVER['HTTP_X_FORWARDED_FOR'];
-		} else {
-			return $_SERVER['REMOTE_ADDR'];
-		}
+# A function which returns users IP
+function client_ip()
+{
+	if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+	{
+		return $_SERVER['HTTP_X_FORWARDED_FOR'];
 	}
-	
-		// Checks if Discord Avatar String is gif or not
-	function is_animated($ava_str) {
-		$das = substr($ava_str, 0, 2);
-		if ($das == "a_") {
-			return ".gif";
-		} else {
-			return ".png";
-		}
+	else
+	{
+		return $_SERVER['REMOTE_ADDR'];
 	}
-	
+}
 
+# Check user's avatar type
+function is_animated($avatar)
+{
+	$ext = substr($avatar, 0, 2);
+	if ($ext == "a_")
+	{
+		return ".gif";
+	}
+	else
+	{
+		return ".png";
+	}
+}
 
 ?>
