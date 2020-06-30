@@ -23,8 +23,8 @@ require __DIR__ . "/discord.php";
 
  <html>
      <title>Demo - Discord Oauth</title>
-     <h2 style="color : red;">A Simple Working Demo of the Script </h2>
-     <h3 style="color : red;"> LOGIN WITH THE LINK BELOW TO SEE IT WORK! </h3>
+     <h1>A Simple Working Demo of the Script </h2>
+     <h2 style="color:red; font-weight:900;"> LOGIN WITH THE LINK BELOW TO SEE IT WORK! </h3>
      <h1> User Details :</h1>
      <p> Name : <?php echo $_SESSION['username'] . '#'. $_SESSION['discrim']; ?></p>
      <p> ID : <?php echo $_SESSION['user_id']; ?></p>
@@ -33,7 +33,14 @@ require __DIR__ . "/discord.php";
      <br />
      <h1> User Guilds :</h1>
      <p> <?php echo json_encode($_SESSION['guilds']); ?></p>
-     <h3 style="color:purple;"><a href="
+     <h3 style="display:inline;"><a href="
      <?php echo url("378191060242792449", "http://127.0.0.1/demo/login.php", "identify guilds"); ?>
-     ">Oauth Link </a></h3>
+     ">OAUTH LINK </a></h3>
+     <?php
+     # Displaying logout url only if user is logged in
+     if(isset($_SESSION['user']))
+     {
+         echo '<h3 style="color:red; display:inline;"><a style="color:red; padding-left:10px;" href="logout.php">LOGOUT</a></h3>';
+     }
+     ?>
  </html>
