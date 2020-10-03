@@ -6,11 +6,11 @@
  * @copyright : https://markis.dev
  */
  
-#Enable this to have Error Logging
+#Uncomment to Disable Error Logging
 #Click on OAuth Link to log in
 # Enabling error display
-#error_reporting(E_ALL);
-#ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
  
 
 # Including all the required scripts for demo
