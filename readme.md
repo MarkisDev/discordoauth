@@ -25,7 +25,7 @@ It can also use `email` scope, but some modifications will be required. Join the
 
 You can use `identify and guilds` without having to use a bot token, but to use `guilds.join` you will have to enable the `$bot_token` in the `init()` function in `login.php` and have `guilds.join` enabled in `index.php`.
 
-Make sure the bot is in your server with `CREATE_INSTANT_INVITE` permissions and that you call the function `join_guild` after `get_user` in `login.php` - since it adds the user who's logging in.
+Make sure the bot is in your server with `CREATE_INSTANT_INVITE` permissions and that you call the function `join_guild()` after `get_user()` in `login.php` - since it adds the user who's logging in.
 
 The `guilds.join` scope can add a user with a nickname, mute or deafen him or add him with a role to a server. This script DOES NOT account for any of these.
 If you need help with these, [join the server](https://join.markis.dev) and feel free to ask me!
