@@ -5,7 +5,7 @@
 It's very simple! Just add this line of code in your file :
 `` require 'discord.php'; ``
 That's it! You've successfully added the oauth script to your code!
-TO Make it easier, I've added a demo working of the whole script. Open it and adjust it to your needs.
+To make it easier, I've added a demo working of the whole script. Use it and adjust it to your needs.
 
 # How do I integrate it into my website
 
