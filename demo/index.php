@@ -6,8 +6,6 @@
  * @copyright : https://markis.dev
  */
  
-#Uncomment to Disable Error Logging
-#Click on OAuth Link to log in
 # Enabling error display
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -36,7 +34,7 @@ require __DIR__ . "/discord.php";
      <h1> User Guilds :</h1>
      <p> <?php echo json_encode($_SESSION['guilds']); ?></p>
      <h3 style="display:inline;"><a href="
-     <?php echo url("378191060242792449", "http://127.0.0.1/demo/login.php", "identify guilds"); ?>
+     <?php echo url("CLIENT_ID", "REDIRECT_URI", "SCOPES_SEPARATED_BY_SPACE"); ?>
      ">OAUTH LINK </a></h3>
      <?php
      # Displaying logout url only if user is logged in

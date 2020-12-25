@@ -5,7 +5,17 @@
  * @author : MarkisDev
  * @copyright : https://markis.dev
  */
- 
+
+# IMPORTANT READ THIS:
+# - This requires 'guilds.join' scope to be active in url() function in index.php
+# - The below function requries the client to be a BOT application with CREATE_INSTANT_INVITE permissions to be a member in the server.
+# - Set the `$bot_token` to your bot token if you want to use guilds.join scope in the init() function
+# - The below function HAS to be called after get_user() as it adds the user who has logged in
+# - The bot DOES NOT have to be online, just a member in the server.
+# - Uncomment line 34 to enable the function
+
+# FEEL FREE TO JOIN MY SERVER FOR ANY QUERIES - https://join.markis.dev
+
 # Enabling error display
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -15,11 +25,14 @@ require __DIR__ . "/discord.php";
 require __DIR__ . "/functions.php";
  
 # Initializing all the required values for the script to work
-init ("http://127.0.0.1/demo/login.php", "378191060242792449", "jGsRpLN32NObExT15MSu_Qb9jZ_bJ8IQ");
+init("REDIRECT_URI", "CLIENT_ID", "CLIENT_SECRET", $bot_token=null);
  
 # Fetching user details | (identify scope)
 get_user();
- 
+
+# Adding user to guild | (guilds.join scope)
+# join_guild('SERVER_ID_HERE');
+
 # Fetching user guild details | (guilds scope)
 $_SESSION['guilds'] = get_guilds();
  
