@@ -23,9 +23,10 @@ ini_set('display_errors', 1);
 # Including all the required scripts for demo
 require __DIR__ . "/discord.php";
 require __DIR__ . "/functions.php";
+require "../config.php";
  
 # Initializing all the required values for the script to work
-init("REDIRECT_URI", "CLIENT_ID", "CLIENT_SECRET", $bot_token=null);
+init($redirect_url, $client_id, $secret_id, $bot_token=null);
  
 # Fetching user details | (identify scope)
 get_user();
@@ -37,7 +38,7 @@ get_user();
 $_SESSION['guilds'] = get_guilds();
  
 # Redirecting to home page once all data has been fetched
-redirect("index.php");
+redirect("../index.php");
 
 ?>
  
