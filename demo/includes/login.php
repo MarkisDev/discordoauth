@@ -12,7 +12,7 @@
 # - Set the `$bot_token` to your bot token if you want to use guilds.join scope in the init() function
 # - The below function HAS to be called after get_user() as it adds the user who has logged in
 # - The bot DOES NOT have to be online, just a member in the server.
-# - Uncomment line 34 to enable the function
+# - Uncomment line 35 to enable the function
 
 # FEEL FREE TO JOIN MY SERVER FOR ANY QUERIES - https://join.markis.dev
 
