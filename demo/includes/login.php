@@ -1,6 +1,6 @@
 <?php
 
-/* Discord Oauth v.4.0
+/* Discord Oauth v.4.1
  * Demo Login Script
  * @author : MarkisDev
  * @copyright : https://markis.dev
