@@ -26,7 +26,7 @@ require __DIR__ . "/functions.php";
 require "../config.php";
  
 # Initializing all the required values for the script to work
-init($redirect_url, $client_id, $secret_id, $bot_token=null);
+init($redirect_url, $client_id, $secret_id, $bot_token);
  
 # Fetching user details | (identify scope)
 get_user();
