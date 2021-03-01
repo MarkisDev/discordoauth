@@ -1,5 +1,5 @@
 <?php
-/* Discord Oauth v.4.0
+/* Discord Oauth v.4.1
  * This file will logout a user logged in via the oauth.
  * @author : MarkisDev
  * @copyright : https://markis.dev
