@@ -108,6 +108,21 @@ function get_guild($id)
     return $results;
 }
 
+# A function to get user connections | (connections scope)
+function get_connections()
+{
+    $url = $GLOBALS['base_url'] . "/api/users/@me/connections";
+    $headers = array ('Content-Type: application/x-www-form-urlencoded', 'Authorization: Bearer ' . $_SESSION['access_token']);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $results = json_decode($response, true);
+    return $results;
+}
+
 # Function to make user join a guild | (guilds.join scope)
 # Note : The bot has to be a member of the server with CREATE_INSTANT_INVITE permission.
 #        The bot DOES NOT have to be online, just has to be a bot application and has to be a member of the server.
