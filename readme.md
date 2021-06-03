@@ -21,7 +21,8 @@ Too confusing? Just use the demo!
 # What scopes does the script handle?
 
 The script handles `identify, guilds and guilds.join` scopes.
-It can also use `email` scope, but some modifications will be required. Join the server and ask me for help if you want to use `email` scope.
+It can also use `email` scope, you will however have to call `get_user($email=True)`. Check the demo for more details.
+Join the server and ask me for help if you want to use `email` scope.
 
 You can use `identify and guilds` without having to use a bot token, but to use `guilds.join` you will have to replace `null` of `$bot_token` with your Discord bot token  in the `init()` function in `login.php` and have `guilds.join` enabled in `index.php`.
 
