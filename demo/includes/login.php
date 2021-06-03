@@ -19,27 +19,26 @@
 # Enabling error display
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
- 
+
 # Including all the required scripts for demo
 require __DIR__ . "/discord.php";
 require __DIR__ . "/functions.php";
 require "../config.php";
- 
+
 # Initializing all the required values for the script to work
 init($redirect_url, $client_id, $secret_id, $bot_token);
- 
-# Fetching user details | (identify scope)
-get_user();
+
+# Fetching user details | (identify scope) (optionally email scope too if you want user's email) [Add identify AND email scope for the email!]
+get_user($email = True);
+
+# Uncomment this for using it WITH email scope and comment line 32.
+#get_user($email=True);
 
 # Adding user to guild | (guilds.join scope)
 # join_guild('SERVER_ID_HERE');
 
 # Fetching user guild details | (guilds scope)
 $_SESSION['guilds'] = get_guilds();
- 
+
 # Redirecting to home page once all data has been fetched
 redirect("../index.php");
-
-?>
- 
- 

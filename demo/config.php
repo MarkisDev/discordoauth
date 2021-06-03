@@ -1,5 +1,4 @@
 <?php
-
 # CLIENT ID
 # https://i.imgur.com/GHI2ts5.png (screenshot)
 $client_id = "";
@@ -9,7 +8,7 @@ $client_id = "";
 $secret_id = "";
 
 # SCOPES SEPARATED BY SPACE
-# example: identify guilds 
+# example: identify email guilds 
 $scopes = "";
 
 # REDIRECT URL
@@ -24,5 +23,3 @@ $redirect_url = "";
 
 # https://i.imgur.com/2tlOI4t.png (screenshot)
 $bot_token = null;
-
-?>
