@@ -41,7 +41,7 @@ get_user($email = True);
 $_SESSION['guilds'] = get_guilds();
 
 # Fetching user connections | (connections scope)
-# $_SESSION['connections'] = get_connections();
- 
+$_SESSION['connections'] = get_connections();
+
 # Redirecting to home page once all data has been fetched
 redirect("../index.php");

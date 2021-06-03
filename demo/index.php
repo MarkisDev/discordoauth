@@ -84,29 +84,33 @@ require __DIR__ . "/config.php";
 			?>
 		</table>
 		<br>
-	<h2> User Guilds Response :</h2>
-		<div class="response-block"><p> <?php echo json_encode($_SESSION['guilds']); ?></p></div>
-	<br>
-	<h2> User Connections :</h2>
+		<h2> User Guilds Response :</h2>
+		<div class="response-block">
+			<p> <?php echo json_encode($_SESSION['guilds']); ?></p>
+		</div>
+		<br>
+		<h2> User Connections :</h2>
 		<table border="1">
-		<tr>
-			<th>NAME</th>
-			<th>ID</th>
-		</tr>
-		<?php
-		for($i = 0; $i < sizeof($_SESSION['connections']); $i++) {
-			echo "<tr><td>";
-			echo $_SESSION['connections'][$i]['name'];
-			echo "<td>";
-			echo $_SESSION['connections'][$i]['type'];
-			echo "</td>";
-			echo "</tr></td>";
-		}
-		?>
+			<tr>
+				<th>NAME</th>
+				<th>TYPE</th>
+			</tr>
+			<?php
+			for ($i = 0; $i < sizeof($_SESSION['connections']); $i++) {
+				echo "<tr><td>";
+				echo $_SESSION['connections'][$i]['name'];
+				echo "<td>";
+				echo $_SESSION['connections'][$i]['type'];
+				echo "</td>";
+				echo "</tr></td>";
+			}
+			?>
 		</table>
 		<br>
-	<h2> User Connections Response :</h2>
-	<div class="response-block"><p> <?php echo json_encode($_SESSION['connections']); ?></p></div>
+		<h2> User Connections Response :</h2>
+		<div class="response-block">
+			<p> <?php echo json_encode($_SESSION['connections']); ?></p>
+		</div>
 </body>
 
 </html>

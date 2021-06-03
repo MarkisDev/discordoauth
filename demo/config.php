@@ -8,7 +8,7 @@ $client_id = "";
 $secret_id = "";
 
 # SCOPES SEPARATED BY SPACE
-# example: identify email guilds 
+# example: identify email guilds connections  
 $scopes = "";
 
 # REDIRECT URL
