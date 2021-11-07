@@ -93,11 +93,11 @@ function get_guilds()
     return $results;
 }
 
-# A function to fetch information on a single guild | (guilds scope)
+# A function to fetch information on a single guild | (requires bot token)
 function get_guild($id)
 {
     $url = $GLOBALS['base_url'] . "/api/guilds/$id";
-    $headers = array('Content-Type: application/x-www-form-urlencoded', 'Authorization: Bearer ' . $_SESSION['access_token']);
+    $headers = array('Content-Type: application/x-www-form-urlencoded', 'Authorization: Bot ' . $GLOBALS['bot_token']);
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
