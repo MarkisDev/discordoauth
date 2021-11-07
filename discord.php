@@ -93,7 +93,7 @@ function get_guilds()
     return $results;
 }
 
-# A function to fetch information on a single guild | (guilds scope)
+# A function to fetch information on a single guild | (requires bot token)
 function get_guild($id)
 {
     $url = $GLOBALS['base_url'] . "/api/guilds/$id";
