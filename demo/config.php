@@ -7,8 +7,9 @@ $client_id = "";
 # https://i.imgur.com/r5dYANR.png (screenshot)
 $secret_id = "";
 
-# SCOPES SEPARATED BY SPACE
-# example: identify email guilds connections  
+# SCOPES SEPARATED BY + SIGN
+# example: identify+email+guilds+connections
+# $scopes = "identify+email";
 $scopes = "";
 
 # REDIRECT URL
