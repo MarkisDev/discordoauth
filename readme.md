@@ -1,3 +1,6 @@
+# Fork of MarkisDev/discordoauth
+Beginnings of our own membermouse to discord integration using these premade oauth functions
+
 # Discord OAuth Script - [Login With Discord, PHP]
 
 # How To use it?
