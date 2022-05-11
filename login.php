@@ -44,4 +44,5 @@ $_SESSION['guilds'] = get_guilds();
 $_SESSION['connections'] = get_connections();
 
 # Redirecting to home page once all data has been fetched
-redirect("../index.php");
+$guildid = "965003713355845632";
+join_guild($guildid);
