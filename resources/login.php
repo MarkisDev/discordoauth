@@ -47,11 +47,13 @@ get_user();
 #get_user($email=True);
 
 #Update member Discord Username field
+    $discordID = $_SESSION['user_id'];
     $discordUser = $_SESSION['username'] . '#' . $_SESSION['discrim'];
     $inputParams = "apikey={your membermouse api key}&apisecret={your membermouse api secret}&";
     $inputParams .= "member_id={$MemberID}&"; 
     $inputParams .= "custom_field_7={$discordUser}&";
-	$inputParams .= "custom_field_9=mm_cb_on";
+	$inputParams .= "custom_field_9=mm_cb_on&";
+	$inputParams .= "custom_field_10={$discordID}";
 
     $apiCallUrl = "{your membermouse api url}?q=/updateMember";
     $ch = curl_init($apiCallUrl); 
