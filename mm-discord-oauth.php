@@ -39,7 +39,7 @@
 		);
 		$auth_url = "/link-discord-account-completed";
 	}
-    return wp_kses_post("<a href='{$auth_url}'>Login with Discord</a>");
+    return wp_kses_post("<a href='{$auth_url}' class='nobg'><img src='/wp-content/plugins/mm-discord-oauth/resources/discord_button.png'></img></a>");
 }
 );
 ?>
