@@ -35,7 +35,7 @@
 		$discorduser = mm_member_data(array("name"=>"customField_7"));
 		return wp_kses_post(
 		"You are already in our discord server.
-		<br>Log into Discord with the with your username {$discorduser} <a href='https://discord.com/app'>here</a> to access the server."
+		<br>Log into Discord with your username {$discorduser} <a href='https://discord.com/app'>here</a> to access the server."
 		);
 		$auth_url = "/link-discord-account-completed";
 	}
