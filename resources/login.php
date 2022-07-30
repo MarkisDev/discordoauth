@@ -1,36 +1,25 @@
 <?php
-
-/* Discord Oauth v.4.1
- * Demo Login Script
- * @author : MarkisDev
- * @copyright : https://markis.dev
- */
-
-# IMPORTANT READ THIS:
-# - This requires 'guilds.join' scope to be active in url() function in index.php
-# - The below function requries the client to be a BOT application with CREATE_INSTANT_INVITE permissions to be a member in the server.
-# - Set the `$bot_token` to your bot token if you want to use guilds.join scope in the init() function
-# - The below function HAS to be called after get_user() as it adds the user who has logged in
-# - The bot DOES NOT have to be online, just a member in the server.
-# - Uncomment line 35 to enable the function
-
-# FEEL FREE TO JOIN MY SERVER FOR ANY QUERIES - https://join.markis.dev
-
 require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-load.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-content/plugins/membermouse/includes/mm-constants.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-content/plugins/membermouse/includes/init.php");
+$wpurl = get_site_url();
 require_once("discord.php");
 require("config.php");
+$settings = get_option('discord_oauth_plugin_options');
+
+$loginurl = $settings['login_url'];
+$memberurl = $settings['member_url'];
+$successurl = $settings['success_url'];
 
 $MemberID = mm_member_data(array("name"=>"id"));
 if (!$MemberID) {
 	#die("A fatal error has occurred: No membermouse login session");
-	header('Location: /login');
+	header('Location: ' .$loginurl);
 	die();
 }
 elseif (!$_GET['code']) {
 	# Handle user cancelling the discord auth prompt.
-	header('Location: /my-breakthrough');
+	header('Location: ' .$memberurl);
 	die();
 }
 # Enabling error display
@@ -47,15 +36,16 @@ get_user();
 #get_user($email=True);
 
 #Update member Discord Username field
+	$mmkey = $settings['mm_key'];
+	$mmsecret = $settings['mm_secret'];
     $discordID = $_SESSION['user_id'];
-    $discordUser = $_SESSION['username'] . '#' . $_SESSION['discrim'];
-    $inputParams = "apikey={your membermouse api key}&apisecret={your membermouse api secret}&";
+	$discordUser = $_SESSION['username'] . '#' . $_SESSION['discrim'];
+    $inputParams = "apikey={$mmkey}&apisecret={$mmsecret}&";
     $inputParams .= "member_id={$MemberID}&"; 
     $inputParams .= "custom_field_7={$discordUser}&";
 	$inputParams .= "custom_field_9=mm_cb_on&";
 	$inputParams .= "custom_field_10={$discordID}";
-
-    $apiCallUrl = "{your membermouse api url}?q=/updateMember";
+    $apiCallUrl = "{$wpurl}/wp-content/plugins/membermouse/api/request.php?q=/updateMember";
     $ch = curl_init($apiCallUrl); 
 
     curl_setopt($ch, CURLOPT_POST, 1); 
@@ -67,15 +57,15 @@ get_user();
 
 
 # Adding user to guild | (guilds.join scope)
-$guildid = "{discord server id to add too}";
+$guildid = $settings['guild_id'];
 join_guild($guildid);
 
 #grant server role
-$roleid = "{discord role id to grant}";
+$roleid = $settings['role_id'];
 grant_role($guildid, $roleid);
 
 
 # clear session
 session_destroy();
 # Redirecting to success page
-header('Location: /link-discord-account-completed');
+header('Location: ' .$successurl);
