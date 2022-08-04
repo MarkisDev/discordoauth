@@ -8,7 +8,7 @@
  * Plugin Name:       Breakthrough Discord Oauth
  * Description:       Provides "Login with Discord" via a shortcode, then uses the user's oauth token to get their discord username, populate the field on the member profile and add them to the server after validating their membership.
  * Plugin URI:        https://github.com/BreakthroughParty
- * Version:           0.3
+ * Version:           0.31-dev
  * Author:            Breakthrough Contributors
  * Author URI:        https://breakthroughparty.org.uk/
  */
@@ -17,7 +17,6 @@
 	require_once($_SERVER['DOCUMENT_ROOT'] . "/wp-content/plugins/membermouse/includes/init.php");
 	require_once("resources/config.php");
 	require_once("resources/discord.php");
-
  add_shortcode( 'join_discord', function ( $atts ) {
 	#$atts = shortcode_atts( array(
 	#	'foo' => 'no foo'
@@ -47,7 +46,7 @@ function discord_oauth_add_settings_page() {
 add_action( 'admin_menu', 'discord_oauth_add_settings_page' );
 function discord_oauth_render_plugin_settings_page() {
     ?>
-    <h2>Discord Oauth for MemberMouse Settings</h2>
+    <h2>Discord oAuth for MemberMouse Settings</h2>
     <form action="options.php" method="post">
         <?php 
         settings_fields( 'discord_oauth_plugin_options' );
@@ -83,7 +82,8 @@ add_action( 'admin_init', 'discord_oauth_register_settings' );
 
 //discord api section
 function discord_oauth_dapi_section_text() {
-    echo '<p>Set the Discord API credentials here.</p>';
+	global $redirect_url;
+    echo "<p>Set the Discord API credentials here.</p><p><b>Please Note:</b> You must add <b>{$redirect_url}</b> to the Redirects section<br>in the OAuth2 tab of the Discord Developer Portal or Discord oAuth will fail.";
 }
 
 function discord_oauth_setting_client_id() {
@@ -153,4 +153,6 @@ function discord_oauth_setting_success_url() {
 	echo '<p>Location of the success page. Users will be sent here after successfully authenticating with Discord and joining the server.</p>';
     echo "<input id='discord_oauth_setting_success_url' size='70' name='discord_oauth_plugin_options[success_url]' type='text' value='" . esc_attr( $options['success_url'] ) . "' />";
 }
+
+
 ?>
