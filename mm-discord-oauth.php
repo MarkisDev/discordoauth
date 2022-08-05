@@ -78,6 +78,25 @@ function discord_oauth_register_settings() {
 }
 add_action( 'admin_init', 'discord_oauth_register_settings' );
 
+// validate settings
+
+function discord_oauth_plugin_options_validate( $input ) {
+	$validatedinput = $input;
+	if ( ! preg_match( '/[0-9]{18}/', $validatedinput['client_id'] ) ) {
+		$validatedinput['client_id'] = '';
+		add_settings_error('discord_oauth_setting_client_id', 'client_id_error', 'Invalid Discord Client ID. Client ID should be 18 numbers.', 'error');
+	}
+	if ( ! preg_match( '/[a-zA-Z0-9]{32}/', $validatedinput['client_secret'] ) ) {
+		$validatedinput['client_secret'] = '';
+		add_settings_error('discord_oauth_setting_client_secret', 'client_secret_error', 'Invalid Discord Client Secret. Client Secret should be 32 alphanumeric characters.', 'error');
+	}
+	
+	
+	
+	return $validatedinput;
+	
+	}
+
 // Settings form
 
 //discord api section
