@@ -111,7 +111,7 @@ function RemoveMemberFromDiscord($data) {
 			}
 			
 			$msgobj = [
-			"content" => "Attempting to kick associated Discord User ID: {$discorduserid} {$responsetext}",
+			"content" => "Attempting to kick associated Discord User: <@{$discorduserid}> {$responsetext}",
 		];
 		$m=discord_notify($msgobj);
 			
