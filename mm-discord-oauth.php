@@ -89,11 +89,16 @@ function UncheckDiscordLinked($memberid) {
 function RemoveMemberFromDiscord($data) {
 	global $guildid;
 	$memberstatus = $data["status"];
+	$statustext = $data["status_name"];
 	$discorduserid = $data["cf_10"];
 	$discordname = $data["cf_7"];
 	$memberid = $data["member_id"];
 	//if status is cancelled(2) or expired(8)
 	if ($memberstatus == 2 || $memberstatus == 8) {
+		$msgobj = [
+			"content" => "Member ID {$memberid}'s membership has gone to {$statustext} status.",
+		];
+		$m=discord_notify($msgobj);
 		//if we have the discord user ID
 		if (!empty($discorduserid)) {
 			UncheckDiscordLinked($memberid);
@@ -106,14 +111,14 @@ function RemoveMemberFromDiscord($data) {
 			}
 			
 			$msgobj = [
-			"content" => "Attempting to kick Discord User ID: {$discorduserid} {$responsetext}",
+			"content" => "Attempting to kick associated Discord User ID: {$discorduserid} {$responsetext}",
 		];
 		$m=discord_notify($msgobj);
 			
 		}
 		elseif (empty($discorduserid)) {
 			$msgobj = [
-			"content" => "No discord ID for cancelled member {$memberid}. They will need to be kicked manually! If we have a username for them it is: {$discordname}",
+			"content" => "No discord ID for member {$memberid}. They will need to be kicked manually! If we have a username for them it is: {$discordname}",
 		];
 		$m=discord_notify($msgobj);
 		}
