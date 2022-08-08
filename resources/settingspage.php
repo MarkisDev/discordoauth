@@ -27,6 +27,7 @@ function discord_oauth_register_settings() {
 	//discord server settings
 	add_settings_field( 'discord_oauth_setting_guild_id', 'Discord Guild/Server ID', 'discord_oauth_setting_guild_id', 'mm_discord_oauth', 'discord_server_settings' );
 	add_settings_field( 'discord_oauth_setting_role_id', 'Discord Role ID to Grant', 'discord_oauth_setting_role_id', 'mm_discord_oauth', 'discord_server_settings' );
+    add_settings_field( 'discord_oauth_setting_notification_channel_id', 'Discord Admin Notification Channel ID', 'discord_oauth_setting_notification_channel_id', 'mm_discord_oauth', 'discord_server_settings' );
 	//mm settings
 	add_settings_field( 'discord_oauth_setting_mm_key', 'MemberMouse API Key', 'discord_oauth_setting_mm_key', 'mm_discord_oauth', 'mm_api_settings' );
 	add_settings_field( 'discord_oauth_setting_mm_secret', 'MemberMouse Secret', 'discord_oauth_setting_mm_secret', 'mm_discord_oauth', 'mm_api_settings' );
@@ -92,6 +93,11 @@ function discord_oauth_setting_guild_id() {
 function discord_oauth_setting_role_id() {
     $options = get_option( 'discord_oauth_plugin_options' );
     echo "<input id='discord_oauth_setting_role_id' size='70' name='discord_oauth_plugin_options[role_id]' type='text' value='" . esc_attr( $options['role_id'] ) . "' />";
+}
+function discord_oauth_setting_notification_channel_id() {
+    $options = get_option( 'discord_oauth_plugin_options' );
+    echo '<p>This is where system notifications will be sent, it is advisable to use a private channel only admins/moderators can access.</p>';
+    echo "<input id='discord_oauth_setting_notification_channel_id' size='70' name='discord_oauth_plugin_options[notification_channel_id]' type='text' value='" . esc_attr( $options['notification_channel_id'] ) . "' />";
 }
 
 //mm api section

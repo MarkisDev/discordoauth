@@ -45,12 +45,13 @@
 $bot_token = $settings["bot_token"];
 $guildid = $settings['guild_id'];
 $mmkey = $settings['mm_key'];
+$notificationchannel = $settings['notification_channel_id'];
 $mmsecret = $settings['mm_secret'];
 $wpurl = get_site_url();
 define("BOT_TOKEN",$bot_token);
 function discord_notify($options) {
 	$msgobj=json_encode($options, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE );
-	$dAPI_SendMessage = "https://discordapp.com/api/channels/965003713355845635/messages";
+	$dAPI_SendMessage = "https://discordapp.com/api/channels/{$notificationchannel}/messages";
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_HTTPHEADER,
