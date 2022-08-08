@@ -24,12 +24,12 @@
 	#	'foo' => 'no foo'
 	#), $atts, 'join_discord' );
     global $client_id, $redirect_url, $scopes;
-    $isactivemember = mm_member_decision(array("isMember"=>"true", "membershipId"=>"2|3|4|5|6"));
+    $isactivemember = mm_member_decision(array("isMember"=>"true"));
     if ($isactivemember == true) {
         $auth_url = url($client_id, $redirect_url, $scopes);
     }
     else {
-        return wp_kses_post( "Error validating membership, please <a href='mailto:membership@breakthroughparty.org.uk'>contact the membership team</a> for help." );
+        return wp_kses_post( "Error validating membership" );
     }
 	$discordlinked = mm_member_decision(array("customField_9"=>"mm_cb_on"));
 	if ($discordlinked == true) {
