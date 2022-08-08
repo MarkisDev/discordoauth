@@ -98,9 +98,15 @@ function RemoveMemberFromDiscord($data) {
 		if (!empty($discorduserid)) {
 			UncheckDiscordLinked($memberid);
 			$response = kick_user($guildid, $discorduserid);
-			$fullresponse = var_dump($response);
+			if (empty($response)) {
+				$responsetext = "Success!";
+			}
+			else {
+			$responsetext = "Discord API is unhappy:" . var_dump($response);
+			}
+			
 			$msgobj = [
-			"content" => "Attempting to kick Discord User ID: {$discorduserid} Discord API Says: {$fullresponse}",
+			"content" => "Attempting to kick Discord User ID: {$discorduserid} {$responsetext}",
 		];
 		$m=discord_notify($msgobj);
 			
