@@ -64,6 +64,11 @@ join_guild($guildid);
 $roleid = $settings['role_id'];
 grant_role($guildid, $roleid);
 
+#notify admin channel
+$msgobj = [
+    "content" => "Member ID {$MemberID} joined Discord via oAuth with Discord User {$DiscordUser} and ID {$DiscordID}",
+];
+$m=discord_notify($msgobj);
 
 # clear session
 session_destroy();
