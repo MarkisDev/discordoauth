@@ -160,6 +160,22 @@ function grant_role($guildid, $roleid)
     return $results;
 }
 
+#Function to kick user from the server
+function kick_user($guildid, $userid)
+{
+    $url = $GLOBALS['base_url'] . "/api/guilds/$guildid/members/" . $userid;
+    $headers = array('Content-Type: application/json', 'Authorization: Bot ' . $GLOBALS['bot_token']);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $results = json_decode($response, true);
+    return $results;
+}
+
 
 # A function to verify if login is legit
 function check_state($state)
