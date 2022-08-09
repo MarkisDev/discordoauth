@@ -5,7 +5,7 @@
  * @package mm-discord-oauth
  *
  * @wordpress-plugin
- * Plugin Name:       Breakthrough Discord Oauth
+ * Plugin Name:       MemberMouse Discord Oauth
  * Description:       Provides "Login with Discord" via a shortcode, then uses the user's oauth token to get their discord username, populate the field on the member profile and add them to the server after validating their membership.
  * Plugin URI:        https://github.com/BreakthroughParty
  * Version:           0.45
