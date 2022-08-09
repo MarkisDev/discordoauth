@@ -35,8 +35,7 @@
 	if ($discordlinked == true) {
 		$discorduser = mm_member_data(array("name"=>"customField_7"));
 		return wp_kses_post(
-		"You have already joined our discord server.
-		<br>Log into Discord with your username {$discorduser} <a href='https://discord.com/app'>here</a> to access the server."
+		"<p class=\"mb-0\">You can now log into Discord with your username <a href='https://discord.com/app' class=\"hover more\"><strong>{$discorduser}</strong></a></p>"
 		);
 	}
     return wp_kses_post("<a href='{$auth_url}' class='nobg'><img src='/wp-content/plugins/mm-discord-oauth/resources/discord_button.png'></img></a>");
