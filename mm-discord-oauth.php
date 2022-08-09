@@ -1,6 +1,6 @@
 <?php
 /**
- * Breakthrough discord oauth.
+ * MemberMouse discord oauth.
  *
  * @package mm-discord-oauth
  *
