@@ -96,7 +96,7 @@ function RemoveMemberFromDiscord($data) {
 	//if status is cancelled(2) or expired(8)
 	if ($memberstatus == 2 || $memberstatus == 8) {
 		$msgobj = [
-			"content" => "Member ID {$memberid}'s membership has gone to {$statustext} status.",
+			"content" => "Member {$memberid}'s membership has gone to {$statustext} status.",
 		];
 		$m=discord_notify($msgobj);
 		//if we have the discord user ID
