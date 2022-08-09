@@ -118,9 +118,15 @@ function RemoveMemberFromDiscord($data) {
 		}
 		elseif (empty($discorduserid)) {
 			$msgobj = [
-			"content" => "No discord ID for member {$memberid}. They will need to be kicked manually! If we have a username for them it is: {$discordname}",
+			"content" => "No discord ID for member {$memberid}. They will need to be kicked manually!",
 		];
 		$m=discord_notify($msgobj);
+		if (!empty($discordname)) {
+			$msgobj = [
+				"content" => "They have a username on file: {$discordname}",
+			];
+			$m=discord_notify($msgobj);
+		}
 		}
 		
 	}
