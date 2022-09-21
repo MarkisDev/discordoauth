@@ -89,6 +89,11 @@ require __DIR__ . "/config.php";
 				<p> <?php echo json_encode($_SESSION['guilds']); ?></p>
 			</div>
 			<br>
+			<h2> Give Role :</h2>
+			<div class="response-block">
+				<p> There's no example for this as it requires some setup but it's actually very simple. Please ask inside the discord server if you require help. I'm sure someone is willing to help! </p>
+			</div>
+			<br>
 			<h2> User Connections :</h2>
 			<table border="1">
 				<tr>
