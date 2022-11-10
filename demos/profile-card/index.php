@@ -81,7 +81,6 @@ function is_animated($image)
 	} else {
 		// User is not logged in
 		?>
-		<img class="mb-4" src="assets/images/Discord_logo.svg" alt="" width="100%">
 		<a class="btn btn-lg btn-discord btn-block" href="<?=$auth_url = url($client_id, $redirect_url, $scopes)?>">LOG IN</a>
 		<?php
 	}
