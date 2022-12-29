@@ -59,7 +59,7 @@ function init($redirect_url, $client_id, $client_secret, $bot_token = null)
 function get_channels($guild_id)
 {
     $url = $GLOBALS['base_url'] . "/api/guilds/$guild_id/channels";
-    $headers = array('Content-Type: application/x-www-form-urlencoded', 'Authorization: Bot OTcwNTk4MDc0NDU4MjEwMzE0.G5ALz4.XYqf_DjnDxCyYMey7aXb-YxvyI6QzAW79iluC0');
+    $headers = array('Content-Type: application/x-www-form-urlencoded', 'Authorization: Bot PUT_TOKEN_HERE');
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
