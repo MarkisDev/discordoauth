@@ -37,6 +37,16 @@ get_user();
 # Adding user to guild | (guilds.join scope)
 # join_guild('SERVER_ID_HERE');
 
+# Fetching guild channels | (guilds scope)
+
+$guild_id = "GUILD_ID";
+
+if($guild_id == "GUILD_ID") {
+  echo "<script>alert('Found default value. Cannot fetch channels.'</script>"
+} else {
+  $_SESSION['channels'] = get_channels($guild_id);
+}
+
 # Fetching user guild details | (guilds scope)
 $_SESSION['guilds'] = get_guilds();
 
