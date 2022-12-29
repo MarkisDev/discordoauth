@@ -1,47 +1,193 @@
-# Discord OAuth Script - [Login With Discord, PHP]
 
-# How To use it?
+<h1 align="center">
+  <img src="./img/DiscordoAuth-icon.png" alt="Discord OAuth" width="120">
+  <br>
+  Discord OAuth
+</h1>
 
-It's very simple! Just add this line of code in your file :
-`` require 'discord.php'; ``
-That's it! You've successfully added the oauth script to your code!
-To make it easier, I've added a demo working of the whole script. Use it and adjust it to your needs.
+<h4 align="center">An Open Source demonstration of a PHP <a href="https://discord.com/developers/docs/topics/oauth2" target="_blank">Discord OAuth</a> login flow, with multiple examples to build on top of.</h4>
 
-# How do I integrate it into my website
+<br>
 
-To use it, you will need a quick overview on how this script works. This is not a library, its more like a code snippet. Basically, once you include the file in your login file, you just have to call some predefined functions. This makes oauth for Discord a breeze.
-Like I mentioned, I've now added a demo - just fill in the details and you'll have a basic understanding of how it works.
+<p align="center">
+  <!--License-->
+  <a href="https://github.com/MarkisDev/discordoauth/blob/master/LICENSE"><img src="https://img.shields.io/github/license/MarkisDev/discordoauth"></a>
+  <!--Contributions-->
+  <a href="https://github.com/MarkisDev/discordoauth/graphs/contributors" alt="Contributors"><img src="https://img.shields.io/github/contributors/MarkisDev/discordoauth" /></a>
+  <!--Stars-->
+  <a href="https://github.com/MarkisDev/discordoauth/stargazers"><img src="https://img.shields.io/github/stars/MarkisDev/discordoauth"></a>
+  <!--Discord-->
+  <a href="https://join.markis.dev"><img src="https://img.shields.io/discord/353878008861556746?logo=discord" alt="chat on Discord"></a>
+  <!--Donate-->
+  <a href="#support">
+    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
+  </a>
+</p>
 
-# How does Oauth work?
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#contributing">Contributing</a> •
+  <a href="#support">Support</a> •
+  <a href="#license">License</a>
+</p>
+<div align="center">
+  <img src="./img/demo.png" alt="Discord OAuth Demo" width="800px">
+</div>
 
-After the user authorizes the application, a code is sent by Discord to the Rediect URI. This script which is in your Reirect URI folder will grab the code sent by Discord through a GET request and will POST it to the oauth API along with your data to get an authorizaion token. This authorization token is again sent to the send to the Discord API (which depends on your required scope) to get the user data, which is then utilized by you, that is you make SESSIONS with the data you receieved.
+<br>
 
-Too confusing? Just use the demo!
+## Key Features
 
-# What scopes does the script handle?
+* PHP sessions
+* Get user data
+  - ID, Username, Avatar, Discrim etc.
+* Get user connections
+  - Battlenet, Facebook, Github, Spotify, Twitter, Youtube etc.
+* Get user guilds
+  - IDs, Icons, User permissions, Enabled guild features etc.
+* Get guild user
+  - Nickname, Roles, Join date etc.
+* Join user to guild
+* Get guild object (requires bot)
+* Give guild role (requires bot)
+* ...and more!
 
-The script handles `identify, guilds and guilds.join` scopes.
-It can also use `email` scope, you will however have to call `get_user($email=True)`. Check the demo for more details.
-Join the server and ask me for help if you want to use `email` scope.
+<br>
 
-You can use `identify and guilds` without having to use a bot token, but to use `guilds.join` you will have to replace `null` of `$bot_token` with your Discord bot token  in the `init()` function in `login.php` and have `guilds.join` enabled in `index.php`.
+## About
 
-Make sure the bot is in your server with `CREATE_INSTANT_INVITE` permissions and that you call the function `join_guild()` after `get_user()` in `login.php` - since it adds the user who's logging in.
+This is a small collection of demos, which you can use to start building your Discord PHP application from.
 
-The `guilds.join` scope can add a user with a nickname, mute or deafen him or add him with a role to a server. This script DOES NOT account for any of these.
-If you need help with these, [join the server](https://join.markis.dev) and feel free to ask me!
+This is in no way a framework, but more a sort of *template* that you can use to build on top of.
 
-# How do I make use of the state parameter in the script?
+The idea behind the repo is to give developers a nice starting point to further expand their application from. If you do end up expanding the possibilites of the script, be sure to check out [Contributing](#contributing) in this repo!
 
-So, the state parameter is sent along with your oauth url to Discord. Discord then returns the same value when you're asking for the code.  
-What you basically want to do is check if `$state` is equal to `$_SESSION['state']`. If they're not equal, redirect the user back to home page. This is done to ensure that the login was actually legit (to prevent CSRF attacks).
+What is this **not**?
+* This is not a library
+* This is not a one-click installer
+* This is not a final product
 
-### How does it help prevent CSRF?
+<br>
 
-Well, the `state` value generated by the script is unique for each user and is valid only for that session. This means, nobody else can fake a `state` value and login.
+## How To Use
 
-# I have more doubts as on how to use it and I want to request more functions!
+**Prerequisites:**
+* [Git](https://git-scm.com) for cloning the repo
+* [XAMPP](https://www.apachefriends.org/download.html) (or another web server) for running the PHP application
+* [Discord Application](https://discord.com/developers/applications) with OAuth2 ``CLIENT ID`` and ``CLIENT SECRET``
 
-Join my server and DM me - Markis#0227 your questions and I will sort them. Feel free to request for more functions :)
+<br>
 
-Server Link : <https://join.markis.dev>
+Start by cloning this repository to your computer.
+
+```bash
+$ git clone https://github.com/MarkisDev/discordoauth
+```
+Now open up XAMPP Control Panel, and click on the `Config` button in the `Apache` module.
+
+You want to search for "DocumentRoot", and change the values from ``C:/xampp/htdocs`` into the path of your `discordoauth` folder.
+
+```bash
+#
+# DocumentRoot: The directory out of which you will serve your
+# documents. By default, all requests are taken from this directory, but
+# symbolic links and aliases may be used to point to other locations.
+#
+DocumentRoot "C:\WEB\discordoauth\demos"
+<Directory "C:\WEB\discordoauth\demos">
+```
+> **Note**
+> You may want to point the root directly to one of the included examples for ease of access (`C:\WEB\discordoauth\demos\simple-demo`).
+
+Next you need to open the `config.php` file for the demo you wish to run.
+
+*All demos included in this repo come with their own individual config-file. If you wish to try out multiple demos, you will need to edit the values in their respective `config.php` file.*
+
+Fill out the config file as shown in the examples with values from [Discord Developers Dashboard](https://discord.com/developers/applications).
+
+```php
+<?php
+# CLIENT ID
+$client_id = "623204361394291813";
+
+# CLIENT SECRET
+$secret_id = "roOWew9eNHEQS54SQc6v1pl8YBBiX5O0";
+
+# SCOPES SEPARATED BY + SIGN
+$scopes = "identify";
+
+# REDIRECT URL
+$redirect_url = "http://localhost/simple-demo/includes/login.php";
+```
+
+When you have done this, you must copy the full `$redirect_url` link, and paste it on the [Discord Developers Dashboard](https://discord.com/developers/applications) under your Applications OAuth2 Redirects.
+<img src="./img/oauth-redirect.png" alt="OAuth Redirect" width="500px">
+
+> **Note**
+> You can add multiple redirects to the same application, so feel free to also add the redirects for the other demos:<br>
+> `http://localhost/admin-dashboard/includes/login.php`<br>
+> `http://localhost/bot-dashboard/includes/login.php`
+
+When you have done all the above steps, you should be able to visit [localhost/simple-demo](http://localhost/simple-demo) in your browser, and see the OAuth demo in action!
+
+If you encounter any issues along the way, give us a visit in our [Discord Server](https://join.markis.dev), and we'll be sure to lead you back on the right track!
+
+<br>
+
+## Contributing
+
+Contributions to the project are **always** welcome!
+
+If you found a bug, please [open an issue](https://github.com/MarkisDev/discordoauth/issues/new/choose) and let us know.
+
+If you have a request for a feature you can also [open an issue](https://github.com/MarkisDev/discordoauth/issues/new/choose) and we will take a look at it.
+
+We accept [pull requests](https://github.com/MarkisDev/discordoauth/compare) for any fixes and/or new features.
+
+If you want to contribute a new demo, please remember to copy any new Discord related functions to the `discord.php` file in the root of the repo.
+
+<br>
+
+## Support
+**Support the Author here:**
+
+<a href="https://www.buymeacoffee.com/markisdev" target="_blank"><img src="./img/bmc-button.png" alt="Buy Me A Coffee" width="160"></a>
+
+<br>
+
+**Support the Maintainer here:**
+
+<a href="https://www.buymeacoffee.com/foxdev" target="_blank"><img src="./img/bmc-button.png" alt="Buy Me A Coffee" width="160"></a>
+
+<br>
+
+## License
+
+[MIT License](https://mit-license.org/)
+
+```
+Copyright (c) 2022 MarkisDev
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+---
+
+
+[@f-o](https://github.com/f-o) &nbsp;&middot;&nbsp; [@markisdev](https://github.com/markisdev) 

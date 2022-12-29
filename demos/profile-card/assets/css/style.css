@@ -1,0 +1,108 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding-bottom: 75px;
+    background: url(../img/bg.png) center no-repeat,center no-repeat #282b30
+}
+
+main {
+    width: 100%;
+    max-width: 300px;
+    max-height: 350px;
+
+    padding: 15px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.btn-discord {
+    background-color: #7289DA;
+    color: whitesmoke;
+}
+.btn-discord:hover {
+    background-color: #6578BD;
+    color: whitesmoke;
+}
+
+/** Card **/
+.user-card{
+    max-width: 300px;
+    min-height: 350px;
+
+    background: #18191c;
+
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .user-card .header-banner{
+        min-height: 60px;
+        background: pink;
+    }
+    
+    
+    .user-card .header-top{
+        display: block;
+        padding: 64px 16px 16px;
+        overflow: hidden;
+        position: relative;
+    }
+    .user-card .header-avatar{
+        position: absolute;
+        top: -50px;
+        left: 15px;
+    }
+    .user-card .header-avatar img{
+        border-radius: 50%;
+        background: #18191c;
+        padding: 7px;
+
+        position: fixed;
+        z-index: 1;
+        
+    }
+    .user-card .header-text{
+        font-family: Arial;
+        font-size: 20px;
+        font-weight: 800;
+
+        margin-right: -6;
+    }
+        .user-card .header-text .header-username{
+            color: #fff;
+            margin-right: -6;
+        }
+        .user-card .header-text .header-discrim{
+            color: #b9bbbe;
+        }
+
+    .user-card .header-badges{
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        max-width: 180px;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+    }
+    .user-card .header-badges img{
+        margin-right: 2px;
+    }
+
+.user-card .body-wrapper{
+    padding: 0 16px 14px;
+}
+    .user-card .body-wrapper .body .divider{
+        display: block;
+        border-top: 1px solid #33353b;
+        margin-bottom: 14px;
+    }
+    .user-card .body-wrapper .body .btn{
+        margin-top: 80px;
+    }
+
