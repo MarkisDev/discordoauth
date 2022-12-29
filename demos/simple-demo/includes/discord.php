@@ -55,6 +55,21 @@ function init($redirect_url, $client_id, $client_secret, $bot_token = null)
     $_SESSION['access_token'] = $results['access_token'];
 }
 
+# A function to get the channels in a guild | (requires bot token)
+function get_channels($guild_id)
+{
+    $url = $GLOBALS['base_url'] . "/api/guilds/$guild_id/channels";
+    $headers = array('Content-Type: application/x-www-form-urlencoded', 'Authorization: Bot OTcwNTk4MDc0NDU4MjEwMzE0.G5ALz4.XYqf_DjnDxCyYMey7aXb-YxvyI6QzAW79iluC0');
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($curl);
+    curl_close($curl);
+    $results = json_decode($response, true);
+    return $results;
+}
+
 # A function to get user information | (identify scope)
 function get_user($email = null)
 {
