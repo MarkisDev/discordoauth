@@ -39,10 +39,15 @@ get_user();
 
 # Fetching guild channels | (guilds scope)
 
-$guild_id = "GUILD_ID";
+$guild_id = "GUILD_ID_HERE";
 
-if($guild_id == "GUILD_ID") {
-  echo "<script>alert('Found default value. Cannot fetch channels.'</script>"
+
+# Do not edit the line below!!!
+# Do not edit the line below!!!
+# Do not edit the line below!!!
+
+if($guild_id == "") {
+  echo "<script>alert('Found default value. Cannot fetch channels.'</script>";
 } else {
   $_SESSION['channels'] = get_channels($guild_id);
 }
