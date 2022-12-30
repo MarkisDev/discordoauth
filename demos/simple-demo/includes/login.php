@@ -37,6 +37,12 @@ get_user();
 # Adding user to guild | (guilds.join scope)
 # join_guild('SERVER_ID_HERE');
 
+# Fetching guild channels | (guilds scope)
+
+if($guild_id != null) {
+  $_SESSION['channels'] = get_channels($guild_id);
+}
+
 # Fetching user guild details | (guilds scope)
 $_SESSION['guilds'] = get_guilds();
 

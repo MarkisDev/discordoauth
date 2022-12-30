@@ -17,6 +17,12 @@ $scopes = "";
 # example: https://mydomain.com/test/includes/login.php
 $redirect_url = "";
 
+
+# GETTING CHANNELS
+# - Setting the variable below with server ID will provide you with access to all the channels inside the server.
+$guild_id = null;
+
+
 # IMPORTANT READ THIS:
 # - Set the `$bot_token` to your bot token if you want to use guilds.join scope to add a member to your server
 # - Check login.php for more detailed info on this.
