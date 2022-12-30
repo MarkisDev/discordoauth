@@ -32,10 +32,16 @@ init($redirect_url, $client_id, $secret_id, $bot_token);
 get_user();
 
 # Uncomment this for using it WITH email scope and comment line 32.
-#get_user($email=True);
+# get_user($email=True);
 
 # Adding user to guild | (guilds.join scope)
 # join_guild('SERVER_ID_HERE');
+
+# Fetching guild channels | (guilds scope)
+
+if($guild_id != null) {
+  $_SESSION['channels'] = get_channels($guild_id);
+}
 
 # Fetching user guild details | (guilds scope)
 $_SESSION['guilds'] = get_guilds();
