@@ -84,48 +84,6 @@ require __DIR__ . "/config.php";
 				?>
 			</table>
 			<br>
-			<h2> Text channels:</h2>
-			<table border="1">
-				<tr>
-					<th>NAME</th>
-					<th>ID</th>
-				</tr>
-				<?php
-					for ($i = 0; $i < sizeof($_SESSION['channels']); $i++) {
-					
-						if ($_SESSION['channels'][$i]['type'] == 0) {
-							echo "<tr><td>";
-							echo $_SESSION['channels'][$i]['name'];
-							echo "<td>";
-							echo $_SESSION['channels'][$i]['id'];
-							echo "</td>";
-							echo "</tr></td>";
-						}
-					}
-				?>
-			</table>
-			<br>
-			<h2> Voice channels:</h2>
-			<table border="1">
-				<tr>
-					<th>NAME</th>
-					<th>ID</th>
-				</tr>
-				<?php
-					for ($i = 0; $i < sizeof($_SESSION['channels']); $i++) {
-					
-						if ($_SESSION['channels'][$i]['type'] == 2) {
-							echo "<tr><td>";
-							echo $_SESSION['channels'][$i]['name'];
-							echo "<td>";
-							echo $_SESSION['channels'][$i]['id'];
-							echo "</td>";
-							echo "</tr></td>";
-						}
-					}
-				?>
-			</table>
-			<br>
 			<h2> Guild Channels:</h2>
 			<table border="1">
 				<tr>
