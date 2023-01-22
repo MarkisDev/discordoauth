@@ -73,55 +73,54 @@ What is this **not**?
 ## How To Use
 
 **Prerequisites:**
-* [Git](https://git-scm.com) for cloning the repo
-* [XAMPP](https://www.apachefriends.org/download.html) (or another web server) for running the PHP application
+* [PHP >= 7](https://php.net/)
+* **A web server** for running the PHP application
 * [Discord Application](https://discord.com/developers/applications) with OAuth2 ``CLIENT ID`` and ``CLIENT SECRET``
 
 <br>
 
 Start by cloning this repository to your computer.
-
 ```bash
 $ git clone https://github.com/MarkisDev/discordoauth
 ```
-Now open up XAMPP Control Panel, and click on the `Config` button in the `Apache` module.
 
-You want to search for "DocumentRoot", and change the values from ``C:/xampp/htdocs`` into the path of your `discordoauth` folder.
+Now let's include the discord.php file in our authentication file, loading all the classes and run it with the configuration:
+```php
+use Discord\Auth;
+use Discord\PromiseManager;
+use Discord\Get;
+use Discord\Set;
 
-```bash
-#
-# DocumentRoot: The directory out of which you will serve your
-# documents. By default, all requests are taken from this directory, but
-# symbolic links and aliases may be used to point to other locations.
-#
-DocumentRoot "C:\WEB\discordoauth\demos"
-<Directory "C:\WEB\discordoauth\demos">
+require 'discord.php';
+
+$auth = new Auth([
+  "client_id" => "1234567890",
+  "client_secret" => "a1b2c3d4e5f6g7",
+  "scopes" => "identify+guild",
+  "redirect_url" => "this_page"
+]);
 ```
-> **Note**
-> You may want to point the root directly to one of the included examples for ease of access (`C:\WEB\discordoauth\demos\simple-demo`).
 
-Next you need to open the `config.php` file for the demo you wish to run.
+Start the authentication:
+```php
+$auth->go()
+```
+Here you are supposed to use the `then` or `done` with a callback function
 
-*All demos included in this repo come with their own individual config-file. If you wish to try out multiple demos, you will need to edit the values in their respective `config.php` file.*
+```php
+$auth->go()->then(function (Get $get, Set $set) {
+  $user = $get->user();
+  $guilds = $get->guilds();
+});
+```
+If you included a state in the url you can already check it from the go function:
+```php
+$auth->go($state)->then(....);
+```
 
 Fill out the config file as shown in the examples with values from [Discord Developers Dashboard](https://discord.com/developers/applications).
 
-```php
-<?php
-# CLIENT ID
-$client_id = "623204361394291813";
-
-# CLIENT SECRET
-$secret_id = "roOWew9eNHEQS54SQc6v1pl8YBBiX5O0";
-
-# SCOPES SEPARATED BY + SIGN
-$scopes = "identify";
-
-# REDIRECT URL
-$redirect_url = "http://localhost/simple-demo/includes/login.php";
-```
-
-When you have done this, you must copy the full `$redirect_url` link, and paste it on the [Discord Developers Dashboard](https://discord.com/developers/applications) under your Applications OAuth2 Redirects.
+When you have done this, you must copy the full `redirect_url` link defined in the config, and paste it on the [Discord Developers Dashboard](https://discord.com/developers/applications) under your Applications OAuth2 Redirects.
 <img src="./img/oauth-redirect.png" alt="OAuth Redirect" width="500px">
 
 > **Note**
@@ -131,8 +130,69 @@ When you have done this, you must copy the full `$redirect_url` link, and paste 
 
 When you have done all the above steps, you should be able to visit [localhost/simple-demo](http://localhost/simple-demo) in your browser, and see the OAuth demo in action!
 
-If you encounter any issues along the way, give us a visit in our [Discord Server](https://join.markis.dev), and we'll be sure to lead you back on the right track!
+## Documentation
+A quick documentation showing the functions of each class.
 
+### `Auth`
+```php
+use Discord\Auth;
+```
+Functions:
+```php
+__construct(array $config) : void
+
+<STATIC> state() : string
+
+go(string $state = NULL) : PromiseManager
+```
+
+### `PromiseManager`
+```php
+use Discord\PromiseManager;
+```
+Functions:
+```php
+__construct(string $token, mixed $config) : void
+
+then(mixed $callback) : callback
+
+done(mixed $callback) : then
+```
+
+### `Get`
+```php
+use Discord\get;
+```
+Functions:
+```php
+__construct(string $token, mixed $config) : void
+
+user() : user object
+
+guilds() : guilds object
+
+guild(int $id) : guild object
+
+connections() : connections object
+```
+> **Note**
+> This class is already started in the PromiseManager class callback
+
+### `Set`
+```php
+use Discord\Set;
+```
+Functions:
+```php
+__construct(string $token, mixed $config) : void
+
+role(int $guild, int $user, int $role) : result
+```
+> **Note**
+> This class is already started in the PromiseManager class callback
+
+
+If you encounter any issues along the way, give us a visit in our [Discord Server](https://join.markis.dev), and we'll be sure to lead you back on the right track!
 <br>
 
 ## Contributing
